@@ -1,27 +1,24 @@
 //IMPORT REACT DEPENDENCIES
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 
 //IMPORT COMPONENTS
-import Main from './Main.js';
-import Buttons from './Buttons.js';
-import Footer from './Footer.js';
-import Form from './Form.js';
-import List from './List.js';
-import MainMap from './MainMap.js';
-import MiniMap from './MiniMap.js';
-import Navbar from './Navbar.js';
-import Report from './Report.js';
-import Search from './Search.js';
+import Main from './components/Main';
+import Buttons from './components/Buttons';
+import Footer from './components/Footer';
+import Form from './components/Form';
+import List from './components/List';
+import MainMap from './components/MainMap';
+import MiniMap from './components/MiniMap';
+import Navbar from './components/Navbar';
+import Report from './components/Report';
+import Search from './components/Search';
 
 //RENDER THE MAIN APP PAGE
-class App extends Component {
-    render() {
-        return (
-
-        );
-    }
+const App = () =>{
+ return <h1>HELLO, WORLD! </h1>
 }
 
 //DEFAULT APP TO BE USED IN INDEX.JS
