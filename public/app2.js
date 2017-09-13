@@ -1,6 +1,6 @@
 // We'll be rewriting the table's data frequently, so let's make our code more DRY
 // by writing a function that takes in 'animals' (JSON) and creates a table body
-function displayResults(animals) {
+function displayResults(info) {
   // First, empty the table
   $("tbody").empty();
 
@@ -80,3 +80,5 @@ $("#typeofHarassment-sort").on("click", function() {
     displayResults(data);
   });
 });
+
+module.exports = App2;

@@ -46,7 +46,7 @@ app.get("/all", function(req, res) {
 app.get("/type", function(req, res) {
   // Query: In our database, go to the animals collection, then "find" everything,
   // but this time, sort it by name (1 means ascending order)
-  db.info.find().sort({ 'type of harassment': 1 }, function(error, found) {
+  db.info.find().sort({ 'typeofHarassment': 1 }, function(error, found) {
     // Log any errors if the server encounters one
     if (error) {
       console.log(error);
