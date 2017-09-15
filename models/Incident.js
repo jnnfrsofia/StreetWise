@@ -2,15 +2,35 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var IncidentSchema = new Schema({
 
-  id
+  latitude: {
+    type: Number,
+    required: true
+  },
 
+  longitude: {
+    type: Number,
+    required: true
+  },
 
-  DateTime
+  DateTime: {
+    type: Date,
+    default: Date.now,
+    required: true
+  },
 
+  HarassmentType: {
+    type: String,
+    required: true
+  },
 
-  Location
+  id: {
+    type: Schema.Types.ObjectId,
+    ref: "IncidentID"
+  }
+});
 
+var Incident = mongoose.model("Incident", IncidentSchema);
 
-  HarassmentType
+module.exports = Incident;
