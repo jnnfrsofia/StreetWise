@@ -11,14 +11,12 @@ var Incident = require("./models/Incident");
 
 // Create Instance of Express
 var app = express();
-<<<<<<< HEAD
 
 //Import API routes
 var apiRoutes = require("./routes/apiRoutes")
 app.use('/', apiRoutes);
 
-=======
->>>>>>> 0b331428b9ef5e609bc65d51bbe6acb769f286e7
+
 // Sets an initial port. We'll use this later in our listener
 var PORT = process.env.PORT || 3000;
 
