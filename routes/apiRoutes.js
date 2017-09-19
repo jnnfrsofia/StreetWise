@@ -1,71 +1,77 @@
 // -------------------------------------------------
 // **API ROUTES FOR INCIDENTS STORED IN MONGODB**
-var express = require('express')
-var router = express.Router();
 
+// Require dependencies
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise
+
+//Import Incident schema
 var Incident = require("../models/Incident");
+
 
 // console.log('loaded api routes');
 
+    //Post route that saves a new incident to the DB
+        router.post('/postIncident', function(req, res) {
 
-//Get route that grabs all incidents from the DB
-router.get('/api/incidents', function(req, res) {
+        var incidentData = new Incident(req.body);
+        incidentData.save()
+            .then(item => {
+                alert('Thank you for submitting your incident!')
+                res.send('index.html');
+            })
+            .catch(err => {
+                res.status(400).send('unable to save incident to DB');
+            })
 
-    Incident.find({})
-        .exec(function(err, doc) {
+            console.log(incidentData);
 
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(doc);
-            }
-        })
-});
-
-//Get route that searches for one specific incident by ID
-router.get('/api/search/:id', function(req, res) {
-
-    Incident.find({ '_id': req.params.id })
-        .exec(function(err, doc) {
-
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(doc);
-            }
-        })
-});
-
-//Post route that saves a new incident to the DB
-router.post('/api/incidents', function(req, res) {
-
-    var newIncident = new Incident({
-        date: req.body.title,
-        time: req.body.date,
-        location: req.body.url,
-        harrassmentType: req.body.harrassmentType,
-        description: req.body.description
-    });
-
-    newIncident.save(function(err, doc) {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            res.json(doc);
-        }
-    });
-
-});
-
-//Delete route that removes an incident from the DB
-router.delete('/api/incident/:id', function(req, res) {
-
-    Incident.find({ '_id': req.params.id }).remove()
-        .exec(function(err, doc) {
-            res.send(doc);
         });
 
-});
 
- module.exports = router;
+
+
+        //Get route that grabs all incidents from the DB
+        router.get('/incidents', function(req, res) {
+
+            Incident.find({})
+                .exec(function(err, doc) {
+
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.send(doc);
+                    }
+                })
+        });
+
+        //Get route that searches for one specific incident by ID
+        router.get('/search/:id', function(req, res) {
+
+            Incident.find({ '_id': req.params.id })
+                .exec(function(err, doc) {
+
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.send(doc);
+                    }
+                })
+        });
+
+
+        //Delete route that removes an incident from the DB
+        router.delete('/delete/incident/:id', function(req, res) {
+
+            Incident.find({ '_id': req.params.id }).remove()
+                .exec(function(err, doc) {
+                    res.send(doc);
+                });
+
+        });
+
+module.exports = router;
+
+        
