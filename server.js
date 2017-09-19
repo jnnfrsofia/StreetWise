@@ -38,7 +38,11 @@ app.use(express.static("public"));
 
 
 // MongoDB Configuration configuration
-mongoose.connect("mongodb://localhost:27017/StreetWise");
+mongoose.connect("mongodb://heroku_k0np0cmx:3qq3fvv0henroq5u9eherfcls5@ds139904.mlab.com:39904/heroku_k0np0cmx");
+
+	// previous local connection:
+	// mongodb://localhost:27017/StreetWise
+
 
 var db = mongoose.connection;
 
