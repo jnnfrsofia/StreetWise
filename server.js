@@ -1,23 +1,30 @@
 // Include Server Dependencies
 var express = require("express");
-var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var mongo = require('mongodb');
 var path = require('path');
 
 // Require Incident Schema
-var Incident = require("./models/Incident");
+var incident = require("./models/Incident");
 
 // Create Instance of Express
 var app = express();
+
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //Import API routes
 var apiRoutes = require("./routes/apiRoutes")
 app.use('/', apiRoutes);
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+});
 
-// Sets an initial port. We'll use this later in our listener
+
+// Set PORT 
 var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
@@ -30,7 +37,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("public"));
 
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
+// MongoDB Configuration configuration
 mongoose.connect("mongodb://localhost:27017/StreetWise");
 
 var db = mongoose.connection;

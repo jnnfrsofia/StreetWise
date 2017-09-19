@@ -4,31 +4,35 @@ var Schema = mongoose.Schema;
 
 var IncidentSchema = new Schema({
 
-  latitude: {
-    type: Number,
-    required: true
-  },
+    HarassmentType: {
+        type: String,
+        required: true
+    },
 
-  longitude: {
-    type: Number,
-    required: true
-  },
+    Latitude: {
+        type: String,
+        required: true
+    },
+     Longitude: {
+        type: String,
+        required: true
+    },
 
-  DateTime: {
-    type: Date,
-    default: Date.now,
-    required: true
-  },
+    DateTime: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
 
-  HarassmentType: {
-    type: String,
-    required: true
-  },
+    Description: {
+        type: String,
+        required: false
+    },
 
-  id: {
-    type: Schema.Types.ObjectId,
-    ref: "IncidentID"
-  }
+    id: {
+        type: Schema.Types.ObjectId,
+        ref: "IncidentID"
+    }
 });
 
 var Incident = mongoose.model("Incident", IncidentSchema);
