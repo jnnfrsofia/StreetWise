@@ -6,7 +6,7 @@ var mongo = require('mongodb');
 var path = require('path');
 
 // Require Incident Schema
-var incident = require("./models/Incident");
+var Incident = require("./models/Incident");
 
 // Create Instance of Express
 var app = express();
@@ -38,7 +38,7 @@ app.use(express.static("public"));
 
 
 // MongoDB Configuration configuration
-mongoose.connect("mongodb://localhost:27017/StreetWise");
+mongoose.connect("mongodb://heroku_k0np0cmx:3qq3fvv0henroq5u9eherfcls5@ds139904.mlab.com:39904/heroku_k0np0cmx");
 
 var db = mongoose.connection;
 
@@ -51,7 +51,31 @@ db.once("open", function() {
 });
 
 
+//Creates a test incident schema in db
+function dateNow() {
+  Date.now;
+}
+var newIncident = new Incident({
+  HarassmentType: "sexual",
+  Latitude: 40.7282,
+  Longitude: -74.0776,
+  DateTime: dateNow(),
+  Description: "A man grabbed my butt",
+});
+
+newIncident.save(function(error, doc) {
+
+  if (error) {
+    console.log(error);
+  }
+
+  else {
+    console.log(doc);
+  }
+});
+
 // PORT Listener
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
 });
+
