@@ -4,6 +4,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var mongo = require('mongodb');
 var path = require('path');
+var moment = require('moment');
 
 // Require Incident Schema
 var Incident = require("./models/Incident");
@@ -50,17 +51,19 @@ db.once("open", function() {
     console.log("Mongoose connection successful.");
 });
 
+//Creates date and time variables
+var currentDate = moment().format("MM-DD-YYYY");
+var currentTime = moment().format("HH:mm");
 
 //Creates a test incident schema in db
-function dateNow() {
-  Date.now;
-}
+
 var newIncident = new Incident({
   HarassmentType: "sexual",
   Latitude: 40.7282,
   Longitude: -74.0776,
-  DateTime: dateNow(),
-  Description: "A man grabbed my butt",
+  Date: currentDate,
+  Time: currentTime,
+  Description: "A man grabbed my butt"
 });
 
 newIncident.save(function(error, doc) {
@@ -78,4 +81,3 @@ newIncident.save(function(error, doc) {
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
 });
-
