@@ -1,6 +1,6 @@
 #googlemap {
 
-    background-image: URL('../images/background.jpg');
+    background-image: URL('../images/googlebackground.jpg');
     width: 100%;
     height: auto;
 }
@@ -59,7 +59,7 @@
     border: 2px solid grey;
     padding: 0px 20px;
     background: url('../images/loading.gif');
-    background-position: repeat-x;
+    background-position: center;
 }
 
 
