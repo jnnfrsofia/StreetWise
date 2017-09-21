@@ -77,6 +77,30 @@ newIncident.save(function(error, doc) {
   }
 });
 
+//Creates a post route to add new incidents to database
+app.post("/postIncident", function(req, res) {
+  var newIncident = new Incident(req.body);
+
+  newIncident.save(function(err, doc) {
+    if (err) {
+      res.send(err);
+    }
+
+    else {
+    // Adds new incident to "incidents" collection
+      incidents.findOneAndUpdate({}, { $push: { "HarassmentType": $(".active selected").val()} }, function(err, newdoc) {
+
+        if (err) {
+          res.send(err);
+        }
+        else {
+          res.send(newdoc);
+        }
+      });
+    }
+  });
+});
+
 // PORT Listener
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
