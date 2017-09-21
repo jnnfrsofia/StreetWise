@@ -18,9 +18,13 @@ var IncidentSchema = new Schema({
         required: true
     },
 
-    DateTime: {
-        type: Date,
-        default: Date.now,
+    Date: {
+        type: String,
+        required: true
+    },
+
+    Time: {
+        type: String,
         required: true
     },
 
