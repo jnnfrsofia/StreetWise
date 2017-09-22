@@ -12,20 +12,26 @@ var Incident = require("./models/Incident");
 // Create Instance of Express
 var app = express();
 
+
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 
 //Import API routes
 var apiRoutes = require("./routes/apiRoutes")
 app.use('/', apiRoutes);
 
+
+// Sets an initial port. We'll use this later in our listener
+=======
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 });
 
 
 // Set PORT 
+
 var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
