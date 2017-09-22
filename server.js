@@ -6,8 +6,9 @@ var mongo = require('mongodb');
 var path = require('path');
 var moment = require('moment');
 
-// Require Incident Schema
+// Require Incident and User Schema
 var Incident = require("./models/Incident");
+var User = require("./models/User");
 
 // Create Instance of Express
 var app = express();
@@ -87,8 +88,8 @@ app.post("/postIncident", function(req, res) {
     }
 
     else {
-    // Adds new incident to "incidents" collection
-      incidents.findOneAndUpdate({}, { $push: { "HarassmentType": $(".active selected").val()} }, function(err, newdoc) {
+    // Adds new incident to "incidents" array property of User 
+      User.findOneAndUpdate({}, { $push: { "incidents": doc._id} }, { new: true}, function(err, newdoc) {
 
         if (err) {
           res.send(err);
