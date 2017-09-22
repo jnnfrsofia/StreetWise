@@ -24,7 +24,7 @@ app.use('/', apiRoutes);
 
 
 // Sets an initial port. We'll use this later in our listener
-=======
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 });
