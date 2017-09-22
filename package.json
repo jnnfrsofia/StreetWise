@@ -5,10 +5,9 @@
   "dependencies": {
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
-<<<<<<< HEAD
-=======
     "moment": "^2.18.1",
->>>>>>> b6e03ebb560ec4b4de755073ab69d72f1b526e0e
+  "moment": "^2.18.1",
+
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
     "react": "^15.6.1",
