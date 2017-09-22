@@ -1,56 +1,218 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StreetWise | Create a Report</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet" type="text/css" href=".css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/css/style1.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://use.fontawesome.com/fefb8214e6.css" media="all" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
 
-  
+<body>
+    <!-- HEADER -->
+    <nav>
+        <a href="# " class="brand-logo ">StreetWise</a>
+        <div class="nav-wrapper ">
+            <ul id="nav-mobile " class="right hide-on-med-and-down ">
+                <li><a href="index.html"><i class="large material-icons">home</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Google map -->
+    <div class="row" id="googlemap">
+        <div class="col l8 offset-l2">
+            <div id="map"></div>
+        </div>
+    </div>
+    <!-- middle section -->
+    <div class="row" id="section">
+        <!-- Here comes info about the other pages-->
+        <div class="col l6 middle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero quia, eius neque voluptatibus. Unde atque placeat, dolor sunt dolore sit neque. Ipsam qui repellendus dicta dolor, maiores doloremque libero reprehenderit.</div>
+        <!-- Here comes current Address and Current time -->
+        <div class="col l6 middle">
+            <div>
+                <div style="top-margin:10px">
+                    <div class="col m8">
+                        <p><b>Current Location:</b>
+                            <div id="address"></div>
+                        </p>
+                    </div>
+                    <div class="col m4">
+                        <p><b>Current Time:</b>
+                            <div id="time"></div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m8">
+                    <a href="./reportform.html" class="round-button"><br>Detailed <br>Report <br>button</a>
+                </div>
+                <div class="col m4">
+                    <a href="./incidents.html" class="round-button">View <br>report <br> incidents <br> button</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <div class="container footer-area">
+            <!-- contact me -->
+            <div class="row">
+                <h5>Contact us:</h5>
+                <div class="phone">
+                    <i class="contact-icons fa fa-phone-square" aria-hidden="true">
+                    </i> <span class="phoneNumber">800.867.5309</span>
+                </div>
+                <div class="col s12 contactArea">
+                    <a href="#"><i class="contact-icons fa fa-envelope-o" aria-hidden="true"></i></a>
+                    <a href="#"><i class="contact-icons fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    <a href="#"><i class="contact-icons fa fa-github" aria-hidden="true"></i></a>
+                    <a href="#"><i class="contact-icons fa fa-twitter-square" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="./js/moment.js"></script>
+<script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+var map, infoWindow;
 
-  <title>StreetWise</title>
-  <style type="text/css">
-    #map {
-        height: 400px;
-        width: 100%;
-       }
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 6
+    });
+    infoWindow = new google.maps.InfoWindow;
 
-   </style>
-  </head>
-  <body> 
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-    function initMap() {
-        var uluru = {lat: 40.7280556, lng: -74.0780556};
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0PrStRxe3h9hhyYl9V0bZ1vxNrKbpiOo">
+</script>
+<script async type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+
+    // Google maps that shows where you are at
+
+    function initMap(latitude, longitude) {
+        console.log(latitude)
+        console.log(longitude)
+        var currentLocation = { lat: latitude, lng: longitude };
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: uluru
+            zoom: 15,
+            center: currentLocation
         });
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+            position: currentLocation,
+            map: map
         });
-      }
-    </script> -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0PrStRxe3h9hhyYl9V0bZ1vxNrKbpiOo&callback=initMap">
-    </script>
+    }
 
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
 
-    <title>StreetWise</title>
-  </head>
-  
-  <body>
- 
+    //Set geo location lat and long
 
-  <!-- This is where React will deploy the contents it generates -->
-  <div id="app"></div>
+    var currgeocoder;
 
-  <!-- All of the JS code will be transpiled into this bundle.js file -->
-  <script src="bundle.js"></script>
+    navigator.geolocation.getCurrentPosition(function(position, html5Error) {
 
-  </body>
+        geo_loc = processGeolocationResult(position);
+        currLatLong = geo_loc.split(",");
+        initializeCurrent(currLatLong[0], currLatLong[1]);
+
+    });
+
+    //Get geo location result
+
+    function processGeolocationResult(position) {
+        html5Lat = position.coords.latitude; //Get latitude
+        html5Lon = position.coords.longitude; //Get longitude
+        html5TimeStamp = position.timestamp; //Get timestamp
+        html5Accuracy = position.coords.accuracy; //Get accuracy in meters
+        return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
+    }
+
+    //Check value is present or not & call google api function
+
+    function initializeCurrent(latcurr, longcurr) {
+        console.log(latcurr)
+        console.log(longcurr)
+        var latitude = parseFloat(latcurr);
+        var longitude = parseFloat(longcurr);
+        initMap(latitude, longitude);
+        currgeocoder = new google.maps.Geocoder();
+        console.log(latcurr + "-- ######## --" + longcurr);
+
+        if (latcurr != '' && longcurr != '') {
+            var myLatlng = new google.maps.LatLng(latcurr, longcurr);
+            return getCurrentAddress(myLatlng);
+        }
+    }
+
+    //Get current address
+
+    function getCurrentAddress(location) {
+        currgeocoder.geocode({
+            'location': location
+
+        }, function(results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log(results[0]);
+                $("#address").html(results[0].formatted_address);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    // Get current time
+
+    var currenttime = moment().format('LTS');
+
+    $('#time').html(currenttime);
+    // console.log(currenttime);
+
+});
+</script>
+
 </html>
