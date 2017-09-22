@@ -56,6 +56,21 @@ db.once("open", function() {
 var currentDate = moment().format("MM-DD-YYYY");
 var currentTime = moment().format("HH:mm");
 
+//Hard codes a new user
+var Papi = new User({
+  name: "Dale"
+});
+
+//save Papi in the db
+Papi.save(function(error, doc) {
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(doc);
+  }
+});
+
 //Creates a test incident schema in db
 
 var newIncident = new Incident({
