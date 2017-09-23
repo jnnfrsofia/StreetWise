@@ -63,25 +63,40 @@ var currentTime = moment().format("HH:mm");
 
 //Creates a test incident schema in db
 
-var newIncident = new Incident({
-  HarassmentType: "sexual",
-  Latitude: 40.7282,
-  Longitude: -74.0776,
-  Date: currentDate,
-  Time: currentTime,
-  Description: "A man grabbed my butt"
+// var newIncident = new Incident({
+//   HarassmentType: "sexual",
+//   Latitude: 40.7282,
+//   Longitude: -74.0776,
+//   Date: currentDate,
+//   Time: currentTime,
+//   Description: "A man grabbed my butt"
+// });
+
+// newIncident.save(function(error, doc) {
+
+//   if (error) {
+//     console.log(error);
+//   }
+
+//   else {
+//     console.log(doc);
+//   }
+// });
+
+// ================== get route for MongoDB==========================
+
+app.get("/api/incidents", function(req, res) {
+  Incident.find({}, function(error, doc) {
+    if (error) {
+      res.send(error);
+    }
+    else {
+      res.send(doc);
+    }
+  });
 });
 
-newIncident.save(function(error, doc) {
-
-  if (error) {
-    console.log(error);
-  }
-
-  else {
-    console.log(doc);
-  }
-});
+// ==================================================================
 
 // PORT Listener
 app.listen(PORT, function() {
