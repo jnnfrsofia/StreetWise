@@ -1,0 +1,29 @@
+h1 {
+ 	display: inline-block;
+ 	padding-left: 30px;
+ }
+.centerImage
+{
+	height: 400px;
+    width: 100%;
+    display: block;
+    border: 2px solid grey;
+}
+
+.container.footer-area {
+    text-align: center;
+    height: 100%;
+}
+
+.contactArea {
+    font-size: 60px;
+}
+.contact-icons {
+    margin: 10px;
+    color: #2F4F4F;
+}
+
+.contact-icons:hover {
+    opacity: 1;
+    color: white;
+}
