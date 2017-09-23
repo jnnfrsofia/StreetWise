@@ -11,51 +11,103 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/css/styleC.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://use.fontawesome.com/fefb8214e6.css" media="all" rel="stylesheet">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav>
-        <a href="# " class="brand-logo ">StreetWise</a>
-        <div class="nav-wrapper ">
-            <ul id="nav-mobile " class="right hide-on-med-and-down ">
-                <li><a href="index.html"><i class="large material-icons">home</i></a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="main">
-        <main>
-            <!-- report area -->
-            <div class="container">
-                <div class="row">
-                    
-                </div>
-            </div>
-    </main>
+  <nav class="cyan darken-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Streetwise</a>
+      <ul class="right hide-on-med-and-down">
+        <li class="homePage"><a href="#"><i class="material-icons">home</i></a></li>
+        <li class="reportPage"><a href="#"><i class="material-icons">report</i></a></li>
+        <li class="incidentPage"><a href="#"><i class="material-icons">location_on</i></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-    <!-- FOOTER -->
-    <footer class="page-footer">
+  </nav>
+
+    <div class="container">
+      <h1 class="header center col s12 blue-grey-text">View. Report. Get Streetwise.</h1>
+
+<!--    Placeholder map. Will show incidinets in your area.-->      
+ <div><img src="./style/images/googlemap-placeholder.png" class="centerImage" alt="google map placeholder" height="120" width="350"></div>
+            <br><br>
+      <div class="wrap">
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">Report Incident</a>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">View Incidents</a>
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+      <h5 class="header center col s12 black-text">Everyone deserves piece of mind and to feel safe in their city.</h5>
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center cyan-text"><i class="material-icons">report</i></h2>
+            <h5 class="center">Report all street harrassment.</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia asperiores cumque alias facilis, consequatur perferendis veniam tenetur sint provident voluptas non rerum ut nihil consequuntur in, unde commodi vero, aspernatur.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center cyan-text"><i class="material-icons">location_on</i></h2>
+            <h5 class="center">View incidents in your area.</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptate, neque sit itaque debitis repudiandae quae ea similique nostrum, voluptatum, totam molestias! Tenetur porro facilis perspiciatis necessitatibus blanditiis earum veniam.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+      <footer class="page-footer cyan darken-1">
         <div class="container footer-area">
-            <!-- contact me -->
+            <!-- contact -->
             <div class="row">
-                <h5>Contact us:</h5>
-                <div class="phone">
-                    <i class="contact-icons fa fa-phone-square" aria-hidden="true">
-                    </i> <span class="phoneNumber">800.867.5309</span>
-                </div>
+                <h5>Connect with StreetWise:</h5>
                 <div class="col s12 contactArea">
                     <a href="#"><i class="contact-icons fa fa-envelope-o" aria-hidden="true"></i></a>
-                    <a href="#"><i class="contact-icons fa fa-linkedin-square" aria-hidden="true"></i></a>
                     <a href="#"><i class="contact-icons fa fa-github" aria-hidden="true"></i></a>
                     <a href="#"><i class="contact-icons fa fa-twitter-square" aria-hidden="true"></i></a>
+                    <a href="#"><i class="contact-icons fa fa-facebook-square" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
+        <div class="footer-copyright">
+      <div class="container center cyan-text text-darken-4">
+      All rights reserved by StreetWise 2017
+      </div>
+    </div>
     </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="https://use.fontawesome.com/0dc977594a.js"></script>
+
+  </body>
     <!--  Scripts-->
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
