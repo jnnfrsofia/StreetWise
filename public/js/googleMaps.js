@@ -20,7 +20,7 @@
 
   function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 6
+          zoom: 15
       });
       infoWindow = new google.maps.InfoWindow;
 
@@ -61,7 +61,7 @@
           console.log(longitude)
           var currentLocation = { lat: latitude, lng: longitude };
           var map = new google.maps.Map(document.getElementById('currentLocMap'), {
-              zoom: 6,
+              zoom: 15,
               center: currentLocation
           });
           var marker = new google.maps.Marker({
