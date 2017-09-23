@@ -4,114 +4,146 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>StreetWise | Home</title>
+    <title>StreetWise | Submit a Report </title>
     <!-- CSS  -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <link rel="stylesheet" type="text/css" href="./style/css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="./style/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/css/styleC.css">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://use.fontawesome.com/fefb8214e6.css" media="all" rel="stylesheet">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <!-- <nav>
-        <a href="# " class="brand-logo ">StreetWise</a>
-        <div class="nav-wrapper ">
-            <ul id="nav-mobile " class="right hide-on-med-and-down ">
-                <li><a href="reportform.html"><i class="large material-icons">create</i></a></li>
-                <li><a id="incidentsBtn" href="incidents.html"><i class="large material-icons">timelapse</i></a></li>
+    <nav class="cyan darken-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Streetwise</a>
+            <ul class="right hide-on-med-and-down">
+                <li class="homePage"><a href="index.html"><i class="material-icons">home</i></a></li>
+                <li class="reportPage"><a href="reportform.html"><i class="material-icons">report</i></a></li>
+                <li class="incidentPage"><a href="incidents.html"><i class="material-icons">location_on</i></a></li>
             </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
-    </nav> -->
-      <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">StreetWise</a>
-      <ul class="left hide-on-med-and-down">
-        <li><a href="index.html">About</a></li>
-        <li> <a href="incidents.html">View Recent Reports </a></li>
-        <li class="active"><a href="reportform.html">Submit a Report</a></li>
-      </ul>
-    </div>
-  </nav>
-    <div class="main">
-        <main>
-            <div class="container">
+    </nav>
+    <div class="container">
+        <h1 class="header center col s12 blue-grey-text">View. Report. Get Streetwise.</h1>
+        <!--    Placeholder map. Will show incidinets in your area.-->
+        <!--  <div><img src="./style/images/googlemap-placeholder.png" class="centerImage" alt="google map placeholder" height="120" width="350"></div>
+            <br><br>
+      <div class="wrap">
+      <div class="row center">
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">Report Incident</a>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">View Incidents</a>
+      </div>
+      </div> -->
+        <div class="col s6">
+            <div id="formInstructions" class="row">
+                <h4> Submit your report</h4>
+                <br>
+                <h5>Step 1:</h5>
+                <br>
+                <p>Pin your incident location on the map.It's okay if you're pin isn't 100% accurate--just try to place it in the general area. Once you've placed your pin, click on the pin and the report form will appear.</p>
+                <br>
+                <h5>Step 2: </h5>
+                <p>Fill in the form with as much detail as possible. The decription is optional, but preferred so users have the most information.</p>
+                <br>
+                <h5>Step 3:</h5>
+                <p>Submit your report.</p>
+            </div>
+        </div>
+        <div class="col s6">
+            <form class="hidden" class="col s12" method="POST" action="/postIncident">
                 <div class="row">
-                    <div class="col s6">
-                        <div id="formInstructions" class="row">
-                            <h4> Submit your report</h4>
-                            <br>
-                            <h5>Step 1:</h5> 
-                            <br>
-                            <p>Pin your incident location on the map.It's okay if you're pin isn't 100% accurate--just try to place it in the general area. Once you've placed your pin, click on the pin and the report form will appear.</p>
-                            <br>
-                            <h5>Step 2: </h5>
-                            <p>Fill in the form with as much detail as possible. The decription is optional, but preferred so users have the most information.</p>
-                            <br>
-                            <h5>Step 3:</h5>
-                            <p>Submit your report.</p>
+                    <div class="col s12">
+                        <div class="input-field col s12">
+                            <select name="HarassmentType" id="harassmentType">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="catcall">Catcalling</option>
+                                <option value="indecExpo">Indecent Exposure</option>
+                                <option value="assault">Sexual Assault</option>
+                                <option value="touchGrope">Touching/Groping</option>
+                                <option value="stalking">Stalking</option>
+                                <option value="whistling">Whistling</option>
+                                <option value="racist">Racist Remarks</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label>Harassment Types</label>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="Longitude" id="longitude_input" type="text" class="validate">
+                        <label for="longitude_input">Longitude:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input name="Latutude" id="latitude_input" type="text" class="validate">
+                        <label for="latitude_input">Latitude:</label>
+                    </div>
+                </div>
+                <div class="row>">
+                    <div class="input-field col s12">
+                        <input name="DateTime" id="dateTime_input" type="text" class="validate">
+                        <label for="dateTime_input">Date and Time:</label>
+                    </div>
+                </div>
+                <div class="row>">
+                    <div class="input-field col s12">
+                        <input name="Description" id="desc_input" type="text" class="validate">
+                        <label for="desc_input">Description:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div align="center">
+                        <div class="col s3">
+                            <button id="submitForm" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
-
-                        <div class="col s6">
-                            <form class="hidden" class="col s12" method="POST" action="/incidents">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <div class="input-field col s12">
-                                            <select name="HarassmentType" id="harassmentType">
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="sexual">Sexual</option>
-                                                <option value="religious">Religious</option>
-                                                <option value="racial">Racial</option>
-                                            </select>
-                                            <label>Harassment Types</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input name="Location" id="location_input" type="text" class="validate">
-                                        <label for="location_input">Location:</label>
-                                    </div>
-                                </div>
-                                <div class="row>">
-                                    <div class="input-field col s12">
-                                        <input name="DateTime" id="dateTime_input" type="text" class="validate">
-                                        <label for="dateTime_input">Date and Time:</label>
-                                    </div>
-                                </div>
-                                <div class="row>">
-                                    <div class="input-field col s12">
-                                        <input name="Description" id="desc_input" type="text" class="validate">
-                                        <label for="desc_input">Description:</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div align="center">
-                                        <div class="col s3">
-                                            <button id="submitForm" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                                <i class="material-icons right">send</i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    <div class="col s6">
-                        <!-- <img id="map" src="./style/images/map-placeholder.png"> -->
-                        <div id="currentLocMap"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col s6">
+            <div id="map"></div>
+            <input id="pac-input" />
+            <div id="type-selector" class="controls"></div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <!--   Icon Section   -->
+            <div class="row">
+                <h5 class="header center col s12 black-text">Everyone deserves peace of mind and to feel safe in their city.</h5>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center cyan-text"><i class="material-icons">report</i></h2>
+                        <h5 class="center">Report all street harrassment.</h5>
+                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia asperiores cumque alias facilis, consequatur perferendis veniam tenetur sint provident voluptas non rerum ut nihil consequuntur in, unde commodi vero, aspernatur.</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center cyan-text"><i class="material-icons">location_on</i></h2>
+                        <h5 class="center">View incidents in your area.</h5>
+                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptate, neque sit itaque debitis repudiandae quae ea similique nostrum, voluptatum, totam molestias! Tenetur porro facilis perspiciatis necessitatibus blanditiis earum veniam.</p>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+        <br>
+        <br>
     </div>
-    <!-- FOOTER -->
-    <footer class="page-footer">
+    <footer class="page-footer cyan darken-1">
         <div class="container footer-area">
             <!-- contact -->
             <div class="row">
@@ -124,17 +156,133 @@
                 </div>
             </div>
         </div>
+        <div class="footer-copyright">
+            <div class="container center cyan-text text-darken-4">
+                All rights reserved by StreetWise 2017
+            </div>
+        </div>
     </footer>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://use.fontawesome.com/0dc977594a.js"></script>
+    <!--  GOOGLE Scripts-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS5bsmhClE3rBnBxqi1_J3omsxL2IqpC8&sensor=false&libraries=geometry,places&ext=.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!--  Scripts-->
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
     <script type="text/javascript" src="./js/logic.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0PrStRxe3h9hhyYl9V0bZ1vxNrKbpiOo"></script>
-    <script type="text/javascript" src="./js/googleMaps.js"></script>
+    <!-- Moment.js Reference -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script type="text/javascript"></script>
+    <script type="text/javascript">
+    var dateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+    function initMap() {
+        var geocoder;
+        var map;
+        var marker;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: -7.0157404,
+                lng: 110.4171283
+            },
+            zoom: 15
+        });
+        var input = /** @type {!HTMLInputElement} */ (
+            document.getElementById('pac-input'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        console.log(input);
+        autocomplete.bindTo('bounds', map);
+
+        // This gives auto options similar to the input the user is typing the address 
+
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
+
+            // If the place has a geometry, then present it on a map.
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17); // Why 17? Because it looks good.
+            }
+
+            marker.setPosition(place.geometry.location);
+            marker.setVisible(true);
+            marker.addListener('click', displayForm);
+
+            // this lets the pin be the place the searcher is looking for
+
+            // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+            infowindow.open(map, marker);
+
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29),
+            draggable: true
+        });
+
+        function geocodePosition(pos) {
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                latLng: pos
+            }, function(responses) {
+                if (responses && responses.length > 0) {
+                    marker.formatted_address = responses[0].formatted_address;
+                } else {
+                    marker.formatted_address = 'Cannot determine address at this location.';
+                }
+                infowindow.setContent(marker.formatted_address + "<br>coordinates: " + marker.getPosition().toUrlValue(6));
+                infowindow.open(map, marker);
+                console.log("New Address: ", marker.formatted_address)
+            });
+        }
+        google.maps.event.addListener(marker, 'dragend', function() {
+            document.getElementsByName('latitude_input').value = marker.getPosition().lat();
+            document.getElementsByName('longitude_input').value = marker.getPosition().lng();
+            // updateMarkerStatus('Drag ended');
+            geocodePosition(marker.getPosition());
+
+            console.log("THE LONGITUDE IS:" + marker.getPosition().lng());
+            console.log("THE LATITUDE IS:" + marker.getPosition().lat());
+        });
+
+        function displayForm() {
+            $('form').css('display', 'block');
+            console.log("marker clicked");
+            $('#map').css('display', 'none');
+            $("#longitude_input").val(marker.getPosition().lng());
+            $("#latitude_input").val(marker.getPosition().lat());
+            $('#dateTime_input').val(dateTime);
+            // console.log(currentLocation);
+            // console.log(currentDate);
+            // console.log(currentTime);
+
+        }
 
 
+
+
+    }
+    google.maps.event.addDomListener(window, "load", initMap);
+    </script>
 </body>
 
 </html>

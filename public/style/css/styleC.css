@@ -27,3 +27,36 @@ h1 {
     opacity: 1;
     color: white;
 }
+
+/* report form styling */
+
+
+form {
+    border-style: solid;
+    border-width: medium;
+    margin-bottom: 30px;
+    height: 100%;
+    display: none;
+}
+#formInstructions {
+    border-style: solid;
+    border-width: medium;
+    margin-bottom: 30px;
+    height: 100%;
+    width: 75%;
+}
+
+#location_input {
+    display: block;
+    color: black;
+}
+
+
+#map {
+    height: 400px;
+    width: 100%;
+    display: block;
+    border: 2px solid grey;
+    background-position: center;
+    background-repeat:no-repeat;;
+}
