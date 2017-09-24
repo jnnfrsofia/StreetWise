@@ -2,6 +2,7 @@
 // **API ROUTES FOR INCIDENTS STORED IN MONGODB**
 
 // Require dependencies
+var path = require('path');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -14,20 +15,19 @@ var Incident = require("../models/Incident");
 // console.log('loaded api routes');
 
     //Post route that saves a new incident to the DB
-        router.post('/postIncident', function(req, res) {
+      router.post('/postIncident', function(req, res) {
 
         var incidentData = new Incident(req.body);
-        incidentData.save()
-            .then(item => {
-                alert('Thank you for submitting your incident!')
-                res.send('index.html');
-            })
-            .catch(err => {
-                res.status(400).send('unable to save incident to DB');
-            })
+          incidentData.save(function(error, doc) {
+            if (error) {
+              console.log(error);
+            }
 
-            console.log(incidentData);
-
+            else {
+              console.log(doc);
+              res.sendFile(path.join(__dirname, '../public', 'incidents.html'));
+            }
+          });
         });
 
 
