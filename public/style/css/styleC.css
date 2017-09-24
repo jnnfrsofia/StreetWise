@@ -51,12 +51,29 @@ form {
     color: black;
 }
 
-
 #map {
     height: 400px;
     width: 100%;
     display: block;
     border: 2px solid grey;
-    background-position: center;
-    background-repeat:no-repeat;;
 }
+
+/* table styling */
+ th {
+    font-weight: bold;
+    font-size: 20px;
+ }
+
+ td {
+    font-size: 16px;
+ }
+
+ #incidentTable {
+    border: 2px solid grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+ }
+
+
+
+
