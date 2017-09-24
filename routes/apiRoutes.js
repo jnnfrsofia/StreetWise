@@ -36,7 +36,7 @@ var Incident = require("../models/Incident");
         //Get route that grabs all incidents from the DB
         router.get('/api/incidents', function(req, res) {
 
-            Incident.find({})
+            Incident.find().sort({DateTime: -1})
                 .exec(function(err, doc) {
 
                     if (err) {

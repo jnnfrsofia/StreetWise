@@ -86,7 +86,7 @@ db.once("open", function() {
 // ================== get route for MongoDB==========================
 
 app.get("/api/incidents", function(req, res) {
-  Incident.find({}, function(error, doc) {
+  Incident.find().sort({DateTime: -1}, function(error, doc) {
     if (error) {
       res.send(error);
     }
