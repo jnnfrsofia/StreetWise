@@ -7,7 +7,7 @@
     <title>StreetWise | Pinned Report Page</title>
     <!-- CSS  -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./style/css/reset.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
@@ -21,9 +21,9 @@
     <nav class="cyan darken-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">StreetWise</a>
             <ul class="right hide-on-med-and-down">
-                <li class="homePage"><a href="#"><i class="material-icons">home</i></a></li>
-                <li class="reportPage"><a href="#"><i class="material-icons">report</i></a></li>
-                <li class="incidentPage"><a href="#"><i class="material-icons">location_on</i></a></li>
+                <li class="homePage"><a href="index.html"><i class="material-icons">home</i></a></li>
+                <li class="reportPage"><a href="reportform.html"><i class="material-icons">report</i></a></li>
+                <li class="incidentPage"><a href="incidents.html"><i class="material-icons">location_on</i></a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="#">Navbar Link</a></li>
@@ -35,12 +35,13 @@
         <h1 class="header center col s12 blue-grey-text">View. Report. Get StreetWise.</h1>
         <!--    Map placeholder. Map is being loaded from logic.js-->
         <div id="map"></div>
+
         <br>
         <br>
         <div class="wrap">
             <div class="row center">
-                <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">Report Incident</a>
-                <a href="#" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">View Incidents</a>
+                <a href="reportform.html" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">Report Incident</a>
+                <a href="incidents.html" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">View Incidents</a>
             </div>
         </div>
     </div>
