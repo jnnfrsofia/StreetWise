@@ -4,7 +4,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var mongo = require('mongodb');
 var path = require('path');
-var moment = require('moment');
+
 
 // Require Incident Schema
 var Incident = require("./models/Incident");
@@ -57,9 +57,9 @@ db.once("open", function() {
     console.log("Mongoose connection successful.");
 });
 
-//Creates date and time variables
-var currentDate = moment().format("MM-DD-YYYY");
-var currentTime = moment().format("HH:mm");
+// //Creates date and time variables
+// var currentDate = moment().format("MM-DD-YYYY");
+// var currentTime = moment().format("HH:mm");
 
 //Creates a test incident schema in db
 
