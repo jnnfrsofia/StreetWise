@@ -17,34 +17,31 @@ var Incident = require("../models/Incident");
         router.post('/postIncident', function(req, res) {
 
         var incidentData = new Incident(req.body);
-        incidentData.save()
-            .then(item => {
-                alert('Thank you for submitting your incident!')
-                res.send('index.html');
-            })
-            .catch(err => {
-                res.status(400).send('unable to save incident to DB');
-            })
+          incidentData.save(function(error, doc) {
+            if (error) {
+              console.log(error);
+            }
 
-            console.log(incidentData);
-
+            else {
+              console.log(doc);
+              res.redirect('/api/incidents');
+            }
+          });
         });
 
 
 
 
         //Get route that grabs all incidents from the DB
-        router.get('/api/incidents', function(req, res) {
-
-            Incident.find({})
-                .exec(function(err, doc) {
-
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        res.send(doc);
-                    }
-                })
+        router.get("/api/incidents", function(req, res) {
+          Incident.find({}, function(error, doc) {
+            if (error) {
+              res.send(error);
+            }
+            else {
+              res.send(doc);
+            }
+          });
         });
 
         //Get route that searches for one specific incident by ID

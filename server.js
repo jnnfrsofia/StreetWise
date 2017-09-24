@@ -58,8 +58,8 @@ db.once("open", function() {
 });
 
 //Creates date and time variables
-var currentDate = moment().format("MM-DD-YYYY");
-var currentTime = moment().format("HH:mm");
+//var currentDate = moment().format("MM-DD-YYYY");
+//var currentTime = moment().format("HH:mm");
 
 //Creates a test incident schema in db
 
@@ -85,16 +85,6 @@ var currentTime = moment().format("HH:mm");
 
 // ================== get route for MongoDB==========================
 
-app.get("/api/incidents", function(req, res) {
-  Incident.find({}, function(error, doc) {
-    if (error) {
-      res.send(error);
-    }
-    else {
-      res.send(doc);
-    }
-  });
-});
 
 // ==================================================================
 

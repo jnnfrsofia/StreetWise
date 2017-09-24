@@ -8,19 +8,16 @@ var IncidentSchema = new Schema({
         type: String,
         required: true
     },
-    Location: {
-        Longitude: {
-            type: Number,
-            required: true
-        },
-        Latitude: {
-            type: Number,
-            required: true
-        }
+    Longitude: {
+        type: String,
+        required: true
+    },
+    Latitude: {
+        type: String,
+        required: true
     },
     DateTime: {
-        type: Date,
-        default: Date.now,
+        type: String,
         required: true
     },
 
