@@ -21,9 +21,9 @@
     <nav class="cyan darken-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">StreetWise</a>
             <ul class="right hide-on-med-and-down">
-                <li class="homePage"><a href="index.html"><i class="material-icons">home</i></a></li>
-                <li class="reportPage"><a href="reportform.html"><i class="material-icons">report</i></a></li>
-                <li class="incidentPage"><a href="incidents.html"><i class="material-icons">location_on</i></a></li>
+                <li class="homePage"><a href="/"><i class="material-icons">home</i></a></li>
+                <li class="reportPage"><a href="/reportincident"><i class="material-icons">report</i></a></li>
+                <li class="incidentPage"><a href="/viewincidents"><i class="material-icons">location_on</i></a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="#">Navbar Link</a></li>
@@ -32,6 +32,15 @@
         </div>
     </nav>
     <div class="container">
+    <h1 class="header center col s12 blue-grey-text">View. Report. Get Streetwise.</h1>
+
+    <div class="col s12" id="incidentsHeader">
+    
+
+    <p id="incidentsPara">Below you will see a table of all harassment incidents reported to StreetWise from most recent to oldest. While it is unfortunate these incidents happen so often, it is powerful to see so many people sharing their stories to help others become better informed of their surroundings.</p>
+
+
+    </div>
 
 
       <table class="responsive striped centered col s12" id="incidentTable">
@@ -75,7 +84,7 @@
  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
-
+    
 
 <script type="text/javascript">
     $(document).ready(function() {
