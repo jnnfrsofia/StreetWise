@@ -21,9 +21,9 @@
     <nav class="cyan darken-1" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Streetwise</a>
             <ul class="right hide-on-med-and-down">
-                <li class="homePage"><a href="index.html"><i class="material-icons">home</i></a></li>
-                <li class="reportPage"><a href="reportform.html"><i class="material-icons">report</i></a></li>
-                <li class="incidentPage"><a href="incidents.html"><i class="material-icons">location_on</i></a></li>
+                <li class="homePage"><a href="/"><i class="material-icons">home</i></a></li>
+                <li class="reportPage"><a href="/reportincident"><i class="material-icons">report</i></a></li>
+                <li class="incidentPage"><a href="/viewincidents"><i class="material-icons">location_on</i></a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="#">Navbar Link</a></li>
@@ -44,17 +44,17 @@
       </div> -->
         <div class="col s6">
             <div id="formInstructions" class="row">
-                <h4> Submit your report</h4>
+                <h4>Step 1:</h4>
                 <br>
-                <h5>Step 1:</h5>
+                <p>Search for the address where your incident occurred in the map search bar. Once you've found the incident location, click on the marker and the report form will appear with the location information and time autopopulated (these can be edited).</p>
                 <br>
-                <p>Pin your incident location on the map.It's okay if you're pin isn't 100% accurate--just try to place it in the general area. Once you've placed your pin, click on the pin and the report form will appear.</p>
+                <h4>Step 2: </h4>
+                <p>Fill in the report form with as much detail as possible. The decription field is optional, but preferred so users will have the most information.</p>
                 <br>
-                <h5>Step 2: </h5>
-                <p>Fill in the form with as much detail as possible. The decription is optional, but preferred so users have the most information.</p>
-                <br>
-                <h5>Step 3:</h5>
+                <h4>Step 3:</h4>
                 <p>Submit your report.</p>
+                <h4>Step 4:</h4>
+                <p>View your incident along with other incidents reported to StreetWise in reverse chronological order.</p>
             </div>
         </div>
         <div class="col s6">
@@ -64,14 +64,14 @@
                         <div class="input-field col s12">
                             <select name="HarassmentType" id="harassmentType">
                                 <option value="" disabled selected>Choose your option</option>
-                                <option value="catcall">Catcalling</option>
-                                <option value="indecExpo">Indecent Exposure</option>
-                                <option value="assault">Sexual Assault</option>
-                                <option value="touchGrope">Touching/Groping</option>
-                                <option value="stalking">Stalking</option>
-                                <option value="whistling">Whistling</option>
-                                <option value="racist">Racist Remarks</option>
-                                <option value="other">Other</option>
+                                <option value="Catcall">Catcalling</option>
+                                <option value="Indecent Exposure">Indecent Exposure</option>
+                                <option value="Sexual Assault">Sexual Assault</option>
+                                <option value="Touching/Groping">Touching/Groping</option>
+                                <option value="Stalking">Stalking</option>
+                                <option value="Whistling">Whistling</option>
+                                <option value="Racist Remarks">Racist Remarks</option>
+                                <option value="Other">Other</option>
                             </select>
                             <label>Harassment Types</label>
                         </div>
@@ -118,30 +118,7 @@
             <div id="type-selector" class="controls"></div>
         </div>
     </div>
-    <div class="container">
-        <div class="section">
-            <!--   Icon Section   -->
-            <div class="row">
-                <h5 class="header center col s12 black-text">Everyone deserves peace of mind and to feel safe in their city.</h5>
-                <div class="col s12 m6">
-                    <div class="icon-block">
-                        <h2 class="center cyan-text"><i class="material-icons">report</i></h2>
-                        <h5 class="center">Report all street harrassment.</h5>
-                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia asperiores cumque alias facilis, consequatur perferendis veniam tenetur sint provident voluptas non rerum ut nihil consequuntur in, unde commodi vero, aspernatur.</p>
-                    </div>
-                </div>
-                <div class="col s12 m6">
-                    <div class="icon-block">
-                        <h2 class="center cyan-text"><i class="material-icons">location_on</i></h2>
-                        <h5 class="center">View incidents in your area.</h5>
-                        <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptate, neque sit itaque debitis repudiandae quae ea similique nostrum, voluptatum, totam molestias! Tenetur porro facilis perspiciatis necessitatibus blanditiis earum veniam.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-    </div>
+  
     <footer class="page-footer cyan darken-1">
         <div class="container footer-area">
             <!-- contact -->
@@ -172,12 +149,17 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
     <!-- Moment.js Reference -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script type="text/javascript">
     //Code for form dropdown to work
     $(document).ready(function() {
         $('select').material_select();
+    });
+
+    $('submitForm').click(function() {
+        alert('Thank you for reporting your incident.');
     });
 
     //Variable for Date & Time that will appear in the form

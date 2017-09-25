@@ -22,6 +22,8 @@ app.use(bodyParser.json());
 var apiRoutes = require("./routes/apiRoutes")
 app.use('/', apiRoutes);
 
+//Import HTML routes
+require("./routes/htmlRoutes.js")(app);
 
 // Sets an initial port. We'll use this later in our listener
 
@@ -82,6 +84,7 @@ db.once("open", function() {
 //     console.log(doc);
 //   }
 // });
+
 
 // ================== get route for MongoDB==========================
 
