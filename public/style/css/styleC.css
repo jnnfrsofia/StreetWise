@@ -94,6 +94,13 @@ p {
     margin-bottom: 50px;
 }
 
+.longHidden {
+    display: none;
+}
+
+.latHidden {
+    display: none;
+}
 
 /* table styling */
  th {
