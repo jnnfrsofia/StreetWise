@@ -118,6 +118,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <label for="address_input">Address:</label>
+                                <input name="Address" id="address_input" type="text" class="validate" disable selected>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row>">
                         <div class="col s12">
                             <label for="dateTime_input">Date and Time:</label>
@@ -127,13 +135,13 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                            <div class="col s12">
-                                <div class="input-field col s12">
-                                    <textarea name="Description" id="desc_input" class="materialize-textarea" class="validate"></textarea>
-                                    <label for="desc_input">Description:</label>
+                                <div class="col s12">
+                                    <div class="input-field col s12">
+                                        <textarea name="Description" id="desc_input" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="desc_input">Description:</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="row">
                             <div align="center">
@@ -224,6 +232,7 @@
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
+
         var autocomplete = new google.maps.places.Autocomplete(input);
         // console.log(input);
         autocomplete.bindTo('bounds', map);
@@ -288,22 +297,35 @@
 
             console.log("THE LONGITUDE IS:" + marker.getPosition().lng());
             console.log("THE LATITUDE IS:" + marker.getPosition().lat());
+
         });
 
         function displayForm() {
-            $('form').css('display', 'block');
-            console.log("marker clicked");
-            $('#map').css('display', 'none');
-            $("#longitude_input").val(marker.getPosition().lng());
-            $("#latitude_input").val(marker.getPosition().lat());
-            $('#dateTime_input').val(dateTime);
-            // console.log(currentLocation);
-            // console.log(currentDate);
-            // console.log(currentTime);
+
+            var geocoder = new google.maps.Geocoder(); // create a geocoder object
+            var location = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()); // turn coordinates into an object          
+            geocoder.geocode({ 'latLng': location }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) { // if geocode success
+                    var add = results[0].formatted_address; // if address found, pass to processing function
+                    // console.log(add);
+
+                }
+
+                $('form').css('display', 'block');
+                console.log("marker clicked");
+                $('#map').css('display', 'none');
+                $("#longitude_input").val(marker.getPosition().lng());
+                $("#latitude_input").val(marker.getPosition().lat());
+                $("#address_input").val(add);
+                $('#dateTime_input').val(dateTime);
+                // console.log(currentLocation);
+                // console.log(currentDate);
+                // console.log(currentTime);
+                // console.log(add);
+
+            })
 
         }
-
-
 
     }
 
