@@ -82,6 +82,8 @@ form {
     font-size: 20px;
 }*/
 
+
+
 p {
     line-height: 1.25;
 }
@@ -99,6 +101,13 @@ p {
     margin-bottom: 50px;
 }
 
+.longHidden {
+    display: none;
+}
+
+.latHidden {
+    display: none;
+}
 
 /* table styling */
  th {
@@ -129,9 +138,7 @@ p {
     font-size: 20px;
  }
 
-#logo {
-    padding-top: 10px;
-    float: left;
+
 
 
 
