@@ -12,6 +12,11 @@ h1 {
 }
 
 /* Homepage buttons */
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
 .download-buttons {
     
 }
@@ -124,7 +129,9 @@ p {
     font-size: 20px;
  }
 
-
+#logo {
+    padding-top: 10px;
+    float: left;
 
 
 
