@@ -12,6 +12,11 @@ h1 {
 }
 
 /* Homepage buttons */
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
 .download-buttons {
     
 }
@@ -133,12 +138,7 @@ p {
     font-size: 20px;
  }
 
-::placeholder {
 
-    color: #e65f2a;
-    font-size: 20px;
-    font-weight:bold;
-}
 
 
 
