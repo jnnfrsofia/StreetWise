@@ -16,6 +16,12 @@ var IncidentSchema = new Schema({
         type: Number,
         required: true
     },
+
+    Address: {
+        type: String,
+        required: true
+    },
+    
     DateTime: {
         type: String,
         required: true

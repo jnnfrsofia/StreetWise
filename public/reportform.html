@@ -15,11 +15,13 @@
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://use.fontawesome.com/fefb8214e6.css" media="all" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Asap+Condensed|Inconsolata|Nunito+Sans:300i|Rasa|Special+Elite" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./style/images/icon.png">
 </head>
 
 <body>
     <nav class="cyan darken-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Streetwise</a>
+        <div class="nav-wrapper container"><img src="./style/images/colors400.png" alt="private-eye logo" id="logo"><a id="logo-container" href="index.html" class="brand-logo">StreetWise</a>
             <ul class="right hide-on-med-and-down">
                 <li class="homePage"><a href="/"><i class="material-icons">home</i></a></li>
                 <li class="reportPage"><a href="/reportincident"><i class="material-icons">report</i></a></li>
@@ -50,32 +52,32 @@
         </div> -->
         <!--  <div class="container aboutText"> -->
         <!--   Icon Section   -->
-        <div class="row">
-            <h5 class="header center col s12 black-text">Report your harrassment in 4 easy steps and get the piece of mind you deserve.</h5>
-            <div class="col s12 m3">
+        <div class="row steps">
+            <h5 class="header center col s12 black-text">Report your harassment in 3 easy steps and get the piece of mind you deserve.</h5>
+            <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Step 1:</h5>
-                    <p class="light">Use the search bar at the top of the map to "Enter a location" for where your incident occurred in the map search bar. If needed, drag and drop marker to your location.</p>
+                    <p class="light">Search for your incident location. If needed, drag and drop the marker to your location.</p>
                 </div>
             </div>
-            <div class="col s12 m3">
+            <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Step 2:</h5>
-                    <p class="light">Confirm the incident location by clicking on the red marker and to be guided to the StreetWise report form.</p>
+                    <p class="light">Click on the marker to call the incident report form.</p>
                 </div>
             </div>
-            <div class="col s12 m3">
+            <div class="col s12 m4">
                 <div class="icon-block">
                     <h5 class="center">Step 3:</h5>
-                    <p class="light">Choose harrassment type, confirm the date and time of the incident, and provide a description to alert other users of the possible danger.</p>
+                    <p class="light"> Submit your report and view your incident along with all others reported to StreetWise.</p>
                 </div>
             </div>
-            <div class="col s12 m3">
+     <!--        <div class="col s12 m3">
                 <div class="icon-block">
                     <h5 class="center">Step 4:</h5>
                     <p class="light">Use "Report" button to submit the details of your harrassment. Then, view your incident along with other incidents reported to StreetWise in reverse chronological order.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="container">
@@ -102,19 +104,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col s12">
+                    <div class="row longHidden">
+                        <div class="col s12 ">
                             <div class="col s12">
                                 <label for="longitude_input">Longitude:</label>
                                 <input name="Longitude" id="longitude_input" type="text" class="validate">
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row latHidden">
                         <div class="col s12">
                             <div class="col s12">
                                 <label for="latitude_input">Latitude:</label>
                                 <input name="Latitude" id="latitude_input" type="text" class="validate" disable selected>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <label for="address_input">Address:</label>
+                                <input name="Address" id="address_input" type="text" class="validate" disable selected>
                             </div>
                         </div>
                     </div>
@@ -127,13 +137,13 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
-                            <div class="col s12">
-                                <div class="input-field col s12">
-                                    <textarea name="Description" id="desc_input" class="materialize-textarea" class="validate"></textarea>
-                                    <label for="desc_input">Description:</label>
+                                <div class="col s12">
+                                    <div class="input-field col s12">
+                                        <textarea name="Description" id="desc_input" class="materialize-textarea" class="validate"></textarea>
+                                        <label for="desc_input">Description:</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="row">
                             <div align="center">
@@ -224,6 +234,7 @@
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
+
         var autocomplete = new google.maps.places.Autocomplete(input);
         // console.log(input);
         autocomplete.bindTo('bounds', map);
@@ -288,22 +299,35 @@
 
             console.log("THE LONGITUDE IS:" + marker.getPosition().lng());
             console.log("THE LATITUDE IS:" + marker.getPosition().lat());
+
         });
 
         function displayForm() {
-            $('form').css('display', 'block');
-            console.log("marker clicked");
-            $('#map').css('display', 'none');
-            $("#longitude_input").val(marker.getPosition().lng());
-            $("#latitude_input").val(marker.getPosition().lat());
-            $('#dateTime_input').val(dateTime);
-            // console.log(currentLocation);
-            // console.log(currentDate);
-            // console.log(currentTime);
+
+            var geocoder = new google.maps.Geocoder(); // create a geocoder object
+            var location = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng()); // turn coordinates into an object          
+            geocoder.geocode({ 'latLng': location }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) { // if geocode success
+                    var add = results[0].formatted_address; // if address found, pass to processing function
+                    // console.log(add);
+
+                }
+
+                $('form').css('display', 'block');
+                console.log("marker clicked");
+                $('#map').css('display', 'none');
+                $("#longitude_input").val(marker.getPosition().lng());
+                $("#latitude_input").val(marker.getPosition().lat());
+                $("#address_input").val(add);
+                $('#dateTime_input').val(dateTime);
+                // console.log(currentLocation);
+                // console.log(currentDate);
+                // console.log(currentTime);
+                // console.log(add);
+
+            })
 
         }
-
-
 
     }
 
