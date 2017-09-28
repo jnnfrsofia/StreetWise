@@ -168,3 +168,10 @@ table {
     width: 100%;
     font-size: 20px;
  }
+
+ ::placeholder {
+
+    color: #e65f2a;
+    font-size: 20px;
+    font-weight:bold;
+}
