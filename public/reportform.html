@@ -27,10 +27,17 @@
                 <li class="reportPage"><a href="/reportincident"><i class="material-icons">report</i></a></li>
                 <li class="incidentPage"><a href="/viewincidents"><i class="material-icons">location_on</i></a></li>
             </ul>
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/reportIncident">Report Incident</a></li>
+                <li><a href="/viewincidents">View Incidents</a></li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="side-nav" id="mobile-demo">
+                 <li><a href="/">Home</a></li>
+                <li><a href="/reportIncident">Report Incident</a></li>
+                <li><a href="/viewincidents">View Incidents</a></li>
+            </ul>
         </div>
     </nav>
     <div class="container">
@@ -198,6 +205,7 @@
     <!-- Moment.js Reference -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script type="text/javascript">
+    $(".button-collapse").sideNav();
     //Code for form dropdown to work
     $(document).ready(function() {
 

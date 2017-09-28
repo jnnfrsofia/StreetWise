@@ -27,17 +27,26 @@
                 <li class="reportPage"><a href="/reportincident"><i class="material-icons">report</i></a></li>
                 <li class="incidentPage"><a href="/viewincidents"><i class="material-icons">location_on</i></a></li>
             </ul>
-            <ul id="nav-mobile" class="side-nav">
+           <!--  <ul id="nav-mobile" class="side-nav">
                 <li><a href="#">Navbar Link</a></li>
+            </ul> -->
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/reportIncident">Report Incident</a></li>
+                <li><a href="/viewincidents">View Incidents</a></li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="side-nav" id="mobile-demo">
+                 <li><a href="/">Home</a></li>
+                <li><a href="/reportIncident">Report Incident</a></li>
+                <li><a href="/viewincidents">View Incidents</a></li>
+            </ul>
         </div>
     </nav>
     <div class="container">
         <h1 class="header center col s12 blue-grey-text">View. Report. Get StreetWise.</h1>
         <!--    Map placeholder. Map is being loaded from logic.js-->
         <div id="map"></div>
-
         <div class="wrap">
             <div class="row center">
                 <a href="/reportincident" id="download-button" class="btn-large waves-effect waves-light blue-grey darken-1">Report Incident</a>
@@ -96,7 +105,9 @@
     <script src="https://use.fontawesome.com/fefb8214e6.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
     <script type="text/javascript" src="./js/logic.js"></script>
-
 </body>
+<script type="text/javascript">
+$(".button-collapse").sideNav();
+</script>
 
 </html>
