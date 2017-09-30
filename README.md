@@ -10,6 +10,26 @@ The application uses [Node.js](https://nodejs.org/en/) and [Express](https://exp
 	
 StreetWise is deployed to [Heroku](https://streetwiseapp.herokuapp.com/).
 
+1. Once you click the link to the deployed site, you will see the home page where there is a Google Maps with markers of previously saved incidents as well as buttons to Report an Incident or View Incidents
+
+	<img src="/img/pic1.PNG" alt=sql-1>
+
+2. When you click Report Incident, you will be taken to a map that has an "Enter a location" submission field on top. This is where you can input the address of the incident.
+
+	<img src="/img/pic2.PNG" alt=sql-1>
+
+3. After typing an address, the map will populate a marker of the location you specified. This marker can be dragged if the location is not exactly where you wanted.
+
+	<img src="/img/pic3.PNG" alt=sql-1>
+
+4. Clicking on the marker will pull up the submission form for the Incident Report. Fill out the fields.
+
+	<img src="/img/pic4.PNG" alt=sql-1>
+
+5. Hit the "Report" button and your incident will be saved to the database and displayed on the View Incidents page along with the other incidents.
+
+	<img src="/img/pic5.PNG" alt=sql-1>
+
 ## Installation
 
 To install the application follow the instructions below:
